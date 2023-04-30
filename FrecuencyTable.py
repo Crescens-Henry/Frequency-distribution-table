@@ -10,28 +10,28 @@ arr = np.empty(cant_Num, dtype=float)
 for i in range(cant_Num):
     valor = float(input("valor numero {}:".format(i+1)))
     arr[i] = valor
-print(arr)
+print(f"Conjunto de datos NO ordenados:\n {arr}")
 
 # funcion con complejidad -> Θ(n).
 arr_sorted = np.sort(arr)
-print(arr_sorted)
+print(f"Conjunto de datos Si ordenados:\n {arr_sorted}")
 
 
 def resolutions(cant_Num, arr_sorted):
     K = 1 + (3.322 * np.log10(cant_Num))
     K_round = round(K)
-    print(f"K = {K}")
+    print(f"K = 1 + 3.322 log10({cant_Num}) = {K}")
     print(f"K = {K_round}")
     R = arr_sorted[-1] - arr_sorted[0]
-    print(f"R = {R}")
+    print(f"R = Xmax - Xmin = {arr_sorted[-1]} - {arr_sorted[0]} = {R}")
     A = R/K_round
-    print(f"A = {A}")
+    print(f"A = {R}/{K_round} = {A}")
     A_round = round(A+0.1)
     print(f"A = {A_round}")
     #! table
     variabilidad = 1  # !importante dependiendo la lista de datos
     valor_min = arr_sorted[0]
-    datos = np.zeros((5, 6))  # ! fila, columna
+    datos = np.zeros((6, 6))  # ! fila, columna
     df = pd.DataFrame(
         datos, columns=["LimInf", "LimSup", "Frecuencia", "Marca de clase", "LimInfExacta", "LimSupExacta"])
 
